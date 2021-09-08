@@ -1,14 +1,14 @@
-const {resolve} = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
+const { resolve } = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
   entry: './src/js/index.js',
   output: {
     filename: 'js/built.js',
     path: resolve(__dirname, 'build'),
-    publicPath: '/wanwushuo/'
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -21,9 +21,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
-              plugins: () => [
-                require('postcss-preset-env')()
-              ]
+              plugins: () => [require('postcss-preset-env')()]
             }
           }
         ]
